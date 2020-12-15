@@ -16,7 +16,7 @@ while(1):
 
 	#https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
 	#Load a cascade file for detecting faces
-	face_cascade = cv2.CascadeClassifier('/home/pi/Face Recognition/haarcascade_frontalface_default.xml')
+	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 	gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 
