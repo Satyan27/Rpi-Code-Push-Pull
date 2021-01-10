@@ -77,7 +77,7 @@ while True:
 		# update the list of names
 		names.append(name)
 		
-			# loop over the recognized faces
+	# loop over the recognized faces
 	for ((top, right, bottom, left), name) in zip(boxes, names):
 		# draw the predicted face name on the image
 		cv2.rectangle(frame, (left, top), (right, bottom),

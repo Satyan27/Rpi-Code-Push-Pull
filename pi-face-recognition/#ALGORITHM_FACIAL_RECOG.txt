@@ -1,0 +1,58 @@
+#ALGORITHM_FACIAL_RECOG
+ 
+
+encode_faces.py:
+
+1.construct the argument parser and parse the arguments
+--dataset
+--encodings
+--detection-method
+
+2.grab the paths to the input images in our dataset
+
+3.initialize the list of known encodings and known names
+
+4.loop over the image paths
+	4.1.extract the person name from the image path
+	4.2.load the input image and convert it from RGB (OpenCV ordering)to dlib ordering (RGB)
+	4.3.detect the (x, y)-coordinates of the bounding boxes corresponding to each face in the input image
+	4.4.compute the facial embedding for the face
+	4.5.loop over the encodings
+		4.5.1.add each encoding + name to our set of known names and encodings
+
+5.dump the facial encodings + names to disk
+
+
+pi_face_recognition.py:
+
+1.construct the argument parser and parse the arguments
+--cascade
+--encodings
+
+2.load the known faces and embeddings along with OpenCV's Haarcascade for face detection
+
+3.initialize the video stream and allow the camera sensor to warm up
+
+4.start the FPS(frame oer second) counter
+
+5.loop over frames from the video file stream
+
+	5.1.grab the frame from the threaded video stream and resize it to 500px (to speedup processing)
+	5.2.convert the input frame from (1) BGR to grayscale (for face detection) and (2) from BGR to RGB (for face recognition)
+	5.3.detect faces in the grayscale frame
+	5.4.OpenCV returns bounding box coordinates in (x, y, w, h) order but we need them in (top, right, bottom, left) order, so we need to do a bit of reordering
+	5.5.compute the facial embeddings for each face bounding box
+	5.6.loop over the facial embeddings
+		5.6.1.attempt to match each face in the input image to our known encodings
+		5.6.2.check to see if we have found a match
+			5.6.2.1.find the indexes of all matched faces then initialize a dictionary to count the total number of times each face was matched
+			5.6.2.2.loop over the matched indexes and maintain a count for each recognised face
+			5.6.2.3.determine the recognized face with the largest number of votes (note: in the event of an unlikely tie Python will select first entry in the dictionary)
+		5.6.3.update the list of names
+	5.7.loop over the recognized faces
+		5.7.1.draw the predicted face name on the image
+	5.8.display the image to our screen
+	5.9.if the `q` key was pressed, break from the loop
+	5.10.update the FPS counter
+6.stop the timer and display FPS information
+7.do a bit of cleanup
