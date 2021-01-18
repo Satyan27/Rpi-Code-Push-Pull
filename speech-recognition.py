@@ -55,6 +55,4 @@ def enter_floor_number(argument):
 		return switcher[argument]
 
 
-x = speech_to_text()
-print(x)
-enter_floor_number(x)
+print(enter_floor_number(speech_to_text()))
