@@ -56,3 +56,12 @@ pi_face_recognition.py:
 	5.10.update the FPS counter
 6.stop the timer and display FPS information
 7.do a bit of cleanup
+
+
+#VOICE_COMMAND
+
+1.Record audio
+2.Speech recognition using Google Speech Recognition
+	2.1.Compare the value stored in `r.recognize_google(audio)` with different test cases using dictionary mapping
+		2.1.1.If any test case matces with the `r.recognize_google(audio) then enter that floor number in the elevator queue
+		2.1.2.Else ask the user to enter a valid command
