@@ -48,7 +48,7 @@ def enter_floor_number(argument):
 	"10th floor": 10,
 	"tenth floor": 10
 	}
-	print switcher.get(argument, "Invalid Command")
+	print(enter_floor_number(argument))
 
 
 x = speech_to_text()
