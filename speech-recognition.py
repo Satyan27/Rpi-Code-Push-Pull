@@ -85,7 +85,8 @@ while(1):
 	if x == 'exit' or x == 'Exit':
 		break
 	elif x in floors:
-		queue.append(enter_floor_number(x))
+		queue.append(x)
+		print(x)
 	else:	
 		print('Invalid input. Try again.')
 
