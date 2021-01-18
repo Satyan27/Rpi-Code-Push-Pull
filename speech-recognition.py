@@ -47,9 +47,14 @@ def enter_floor_number(argument):
 	"ninth floor": 9,
 	"10th floor": 10,
 	"tenth floor": 10
-	}
-	print(enter_floor_number(argument))
+	}	
+
+	if switcher.get(argument) == None:
+		print("Invalid Input")
+	else:
+		return switcher[argument]
 
 
 x = speech_to_text()
+print(x)
 enter_floor_number(x)
