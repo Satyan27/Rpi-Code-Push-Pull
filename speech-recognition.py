@@ -18,9 +18,9 @@ def speech_to_text():
 	    # instead of `r.recognize_google(audio)`
 	    print("[+] Command: " + r.recognize_google(audio))
 	except sr.UnknownValueError:
-	    print("Google Speech Recognition could not understand audio")
+	    print("[-] Google Speech Recognition could not understand audio")
 	except sr.RequestError as e:
-	    print("Could not request results from Google Speech Recognition service; {0}".format(e))
+	    print("[-] Could not request results from Google Speech Recognition service; {0}".format(e))
 	return r.recognize_google(audio)
 
 
@@ -88,6 +88,6 @@ while(1):
 	elif x in floors:
 		queue.append(floors.get(x))
 	else:	
-		print('Invalid input. Try again.')
+		print('[-] Invalid input. Try again.')
 
-print(">>> " + queue)
+print(queue)
