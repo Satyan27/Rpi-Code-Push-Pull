@@ -8,7 +8,7 @@ def speech_to_text():
 	# Record Audio
 	r = sr.Recognizer()
 	with sr.Microphone() as source:
-	    print("Enter Command")
+	    print("[+] Enter Floor Number")
 	    audio = r.listen(source)
 
 	# Speech recognition using Google Speech Recognition
@@ -16,7 +16,7 @@ def speech_to_text():
 	    # for testing purposes, we're just using the default API key
 	    # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
 	    # instead of `r.recognize_google(audio)`
-	    print("Enter Floor Number: " + r.recognize_google(audio))
+	    print("[+] Command: " + r.recognize_google(audio))
 	except sr.UnknownValueError:
 	    print("Google Speech Recognition could not understand audio")
 	except sr.RequestError as e:
@@ -55,7 +55,7 @@ def speech_to_text():
 # 		return switcher[argument]
 
 floors = {
-	"Ground floor": 0,
+	"ground floor": 0,
 	"1st floor": 1,
 	"first floor": 1,
 	"2nd floor": 2,
@@ -83,11 +83,11 @@ queue = []
 while(1):
 	x = speech_to_text()
 	if x == 'exit' or x == 'Exit':
+		print("[-] Program Terminated")
 		break
 	elif x in floors:
-		queue.append(x)
-		print(x)
+		queue.append(floors.get(x))
 	else:	
 		print('Invalid input. Try again.')
 
-print(queue)
+print(">>> " + queue)
