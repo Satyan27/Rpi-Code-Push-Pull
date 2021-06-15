@@ -4,33 +4,36 @@ import time
 print "Distance Measurement In Progress"
 
 while(1):
-  GPIO.setmode(GPIO.BCM)
+  distance = 999
 
-  TRIG = 23
-  ECHO = 24
+  while distance > 15:
+    GPIO.setmode(GPIO.BCM)
 
-  GPIO.setup(TRIG,GPIO.OUT)
-  GPIO.setup(ECHO,GPIO.IN)
+    TRIG = 23
+    ECHO = 24
 
-  GPIO.output(TRIG, False)
-  print "Waiting For Sensor To Settle"
-  time.sleep(2)
+    GPIO.setup(TRIG,GPIO.OUT)
+    GPIO.setup(ECHO,GPIO.IN)
 
-  # GPIO.output(TRIG, True)
-  # time.sleep(0.00001)
-  # GPIO.output(TRIG, False)
+    GPIO.output(TRIG, False)
+    print "Waiting For Sensor To Settle"
+    time.sleep(2)
 
-  while GPIO.input(ECHO)==0:
+    GPIO.output(TRIG, True)
+    time.sleep(0.00001)
+    GPIO.output(TRIG, False)
+
+    while GPIO.input(ECHO)==0:
     pulse_start = time.time()
 
-  while GPIO.input(ECHO)==1:
-    pulse_end = time.time() 
+    while GPIO.input(ECHO)==1:
+      pulse_end = time.time() 
 
-  pulse_duration = pulse_end - pulse_start
-  distance = pulse_duration * 17150
-  distance = round(distance, 2)
+    pulse_duration = pulse_end - pulse_start
+    distance = pulse_duration * 17150
+    distance = round(distance, 2)
 
-  if (distance < 15.0):
-    print "Distance:",distance,"cm"
+  # if (distance < 15.0):
+  print "Distance:",distance,"cm"
 
   GPIO.cleanup()
