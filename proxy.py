@@ -24,7 +24,7 @@ while(1):
     GPIO.output(TRIG, False)
 
     while GPIO.input(ECHO)==0:
-    pulse_start = time.time()
+      pulse_start = time.time()
 
     while GPIO.input(ECHO)==1:
       pulse_end = time.time() 
