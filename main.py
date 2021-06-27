@@ -4,11 +4,9 @@ from speech import floors, speech_to_text
 # import encode_faces
 
 while(1):
-	if proxy.dummy() == True:
+	if proxy.proxy_detection() == True:
 		x = speech_to_text()
 		if x in floors:
 			print(x)
 		else:	
 			print('[-] Invalid input. Try again.')
-	# else:
-	# 	pass
