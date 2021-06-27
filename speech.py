@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# Requires PyAudio and PySpeech.
-
 import speech_recognition as sr
 
 
@@ -49,16 +46,14 @@ floors = {
 	"tenth floor": 10,
 }	
 
-queue = []
+# while(1):
+# 	x = speech_to_text()
+# 	if x == 'exit' or x == 'Exit':
+# 		print("[-] Program Terminated")
+# 		break
+# 	elif x in floors:
+# 		queue.append(floors.get(x))
+# 	else:	
+# 		print('[-] Invalid input. Try again.')
 
-while(1):
-	x = speech_to_text()
-	if x == 'exit' or x == 'Exit':
-		print("[-] Program Terminated")
-		break
-	elif x in floors:
-		queue.append(floors.get(x))
-	else:	
-		print('[-] Invalid input. Try again.')
-
-print(queue)
+# print(queue)

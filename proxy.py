@@ -1,12 +1,10 @@
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 import time
 
-print "Distance Measurement In Progress"
+print("Distance Measurement In Progress")
 
-while(1):
-  distance = 999
-
-  while distance > 15:
+def proxy_detection():
+  while(1):
     GPIO.setmode(GPIO.BCM)
 
     TRIG = 23
@@ -16,7 +14,7 @@ while(1):
     GPIO.setup(ECHO,GPIO.IN)
 
     GPIO.output(TRIG, False)
-    print "Waiting For Sensor To Settle"
+    print("Waiting For Sensor To Settle")
     time.sleep(2)
 
     GPIO.output(TRIG, True)
@@ -33,7 +31,16 @@ while(1):
     distance = pulse_duration * 17150
     distance = round(distance, 2)
 
-  # if (distance < 15.0):
-  print "Distance:",distance,"cm"
+    if (distance < 15.0):
+      print("Distance:",distance,"cm")
+      GPIO.cleanup()
 
-  GPIO.cleanup()
+      return True
+
+def dummy():
+  count = 12
+  while(1):
+    print(count)
+    if count == 15:
+      return True
+    count+=1
