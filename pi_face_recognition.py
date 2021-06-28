@@ -1,6 +1,6 @@
 # import the necessary packages
 from imutils.video import VideoStream
-from imutils.video import FPS
+# from imutils.video import FPS
 import face_recognition
 import argparse
 import imutils
@@ -28,7 +28,7 @@ vs = VideoStream(src=0).start()
 # vs = VideoStream(usePiCamera=True).start()
 time.sleep(2.0)
 # start the FPS counter
-fps = FPS().start()
+# fps = FPS().start()
 
 # loop over frames from the video file stream
 while True:
@@ -87,19 +87,25 @@ while True:
 		y = top - 15 if top - 15 > 15 else top + 15
 		cv2.putText(frame, name, (left, y), cv2.FONT_HERSHEY_SIMPLEX,
 			0.75, (0, 255, 0), 2)
-	# display the image to our screen
-	cv2.imshow("Frame", frame)
-	key = cv2.waitKey(1) & 0xFF
-	# if the `q` key was pressed, break from the loop
-	if key == ord("q"):
+
+	if name:
+		print(name)
+		image_name = "saved_pictures/{}.jpg".format(name)
+		cv2.imwrite(image_name, frame)
 		break
-	# update the FPS counter
-	fps.update()
+# 	# display the image to our screen
+# 	cv2.imshow("Frame", frame)
+# 	key = cv2.waitKey(1) & 0xFF
+# 	# if the `q` key was pressed, break from the loop
+# 	if key == ord("q"):
+# 		break
+# 	# update the FPS counter
+# 	fps.update()
 	
-# stop the timer and display FPS information
-fps.stop()
-print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
-print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
-# do a bit of cleanup
-cv2.destroyAllWindows()
+# # stop the timer and display FPS information
+# fps.stop()
+# print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
+# print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
+# # do a bit of cleanup
+# cv2.destroyAllWindows()
 vs.stop()
