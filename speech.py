@@ -62,6 +62,6 @@ def input_floors():
 	if x in floors:
 		print(x)
 		return x
-	else 
+	else:
 		print("[-] Invalid Command. Try Again")
 		input_floors()
