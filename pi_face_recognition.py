@@ -90,7 +90,7 @@ while True:
 	try:
 		if name:
 			print(name)
-			image_name = "saved_pictures/{}.jpg".format(name)
+			image_name = "{}.jpg".format(name)
 			cv2.imwrite(image_name, frame)
 			break
 	except:
@@ -99,8 +99,8 @@ while True:
 # 	cv2.imshow("Frame", frame)
 # 	key = cv2.waitKey(1) & 0xFF
 # 	# if the `q` key was pressed, break from the loop
-# 	if key == ord("q"):
-# 		break
+	if key == ord("q"):
+		break
 # 	# update the FPS counter
 # 	fps.update()
 	
