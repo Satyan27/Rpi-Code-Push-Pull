@@ -5,7 +5,8 @@ import encode_faces
 
 while(1):
 	if proxy.proxy_detection() == True:
-		while(1):
+		count = 0
+		while(count<3):
 			status, output = input_floors()
 			if status == True:
 				print(output)
@@ -13,4 +14,5 @@ while(1):
 				break
 			else:
 				print(output)
+				count+=1
 

@@ -16,7 +16,7 @@ ap.add_argument("-e", "--encodings", required=True,
 args = vars(ap.parse_args())
 
 
-def face_recog():
+
 	# load the known faces and embeddings along with OpenCV's Haar
 	# cascade for face detection
 	print("[INFO] loading encodings + face detector...")
