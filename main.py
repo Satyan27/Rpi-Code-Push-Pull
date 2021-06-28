@@ -5,8 +5,12 @@ import encode_faces
 
 while(1):
 	if proxy.proxy_detection() == True:
-		call = input_floors
-		if call == True:
-			face_recog()
-		else:
-			pass
+		while(1):
+			status, output = input_floors()
+			if status == True:
+				print(output)
+				#face_recog()
+				break
+			else:
+				print(output)
+
