@@ -24,36 +24,44 @@ def speech_to_text():
 
 floors = {
 	"ground floor": 0,
+	"zero": 0,
 	"1st floor": 1,
 	"first floor": 1,
+	"one": 1,
 	"2nd floor": 2,
 	"second floor": 2,
+	"two": 2,
 	"3rd floor": 3,
 	"third floor": 3,
+	"three": 3,
 	"4th floor": 4,
 	"fourth floor": 4,
+	"four": 4,
 	"5th floor": 5,
 	"fifth floor": 5,
+	"five": 5,
 	"6th floor": 6,
 	"sixth floor": 6,
+	"six": 6,
 	"7th floor": 7,
 	"seventh floor": 7,
+	"seven": 7,
 	"8th floor": 8,
 	"eighth floor": 8,
+	"eight": 8,
 	"9th floor": 9,
 	"ninth floor": 9,
+	"nine": 9,
 	"10th floor": 10,
 	"tenth floor": 10,
+	"ten": 10,
 }	
 
-# while(1):
-# 	x = speech_to_text()
-# 	if x == 'exit' or x == 'Exit':
-# 		print("[-] Program Terminated")
-# 		break
-# 	elif x in floors:
-# 		queue.append(floors.get(x))
-# 	else:	
-# 		print('[-] Invalid input. Try again.')
-
-# print(queue)
+def input_floors():
+	x = speech_to_text()
+			if x in floors:
+				print(x)
+				return x
+			else 
+				print("[-] Invalid Command. Try Again")
+				input_floors()
