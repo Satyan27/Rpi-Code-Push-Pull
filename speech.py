@@ -60,9 +60,6 @@ floors = {
 def input_floors():
 	x = speech_to_text()
 	if x in floors:
-		# print(x)
 		return True, x
 	else:
-		# print("[-] Invalid Command. Try Again")
 		return False, "[-] Invalid Command. Try Again"
-		# input_floors()
