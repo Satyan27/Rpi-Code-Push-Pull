@@ -1,8 +1,8 @@
 # import the necessary packages
 from imutils.video import VideoStream
-from imutils.video import FPS
 import face_recognition
 import argparse
+import pickle
 import imutils
 import time
 import cv2
