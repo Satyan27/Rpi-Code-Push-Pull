@@ -21,7 +21,7 @@ while(1):
 				person_name = face_recog(data, detector)
 				temp = temperature()
 				print(person_name, temp)
-				fields=[person_name, temp, datetime.now()]
+				fields=[person_name, temp, output, datetime.now()]
 				with open('database.csv', 'a') as f:
 				    writer = csv.writer(f)
 				    writer.writerow(fields)
