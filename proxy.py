@@ -1,9 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 
-print("Distance Measurement In Progress")
-
 def proxy_detection():
+  print("Distance Measurement In Progress")
+
   while(1):
     GPIO.setmode(GPIO.BCM)
 
