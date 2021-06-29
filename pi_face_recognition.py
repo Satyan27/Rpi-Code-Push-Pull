@@ -7,22 +7,25 @@ import imutils
 import time
 import cv2
 # construct the argument parser and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-c", "--cascade", required=True,
-	help = "path to where the face cascade resides")
-ap.add_argument("-e", "--encodings", required=True,
-	help="path to serialized db of facial encodings")
-args = vars(ap.parse_args())
+# ap = argparse.ArgumentParser()
+# ap.add_argument("-c", "--cascade", required=True,
+# 	help = "path to where the face cascade resides")
+# ap.add_argument("-e", "--encodings", required=True,
+# 	help="path to serialized db of facial encodings")
+# args = vars(ap.parse_args())
 
-print(args["encodings"])
-print(args["cascade"])
+# print(args["encodings"])
+# print(args["cascade"])
 
 
 # load the known faces and embeddings along with OpenCV's Haar
 # cascade for face detection
 print("[INFO] loading encodings + face detector...")
-data = pickle.loads(open(args["encodings"], "rb").read())
-detector = cv2.CascadeClassifier(args["cascade"])
+# data = pickle.loads(open(args["encodings"], "rb").read())
+# detector = cv2.CascadeClassifier(args["cascade"])
+
+data = pickle.loads(open("encodings.pickle", "rb").read())
+detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 # initialize the video stream and allow the camera sensor to warm up
 print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
@@ -96,13 +99,13 @@ while True:
 			break
 	except:
 		pass
-# 	# display the image to our screen
+	# display the image to our screen
 # 	cv2.imshow("Frame", frame)
-# 	key = cv2.waitKey(1) & 0xFF
+	key = cv2.waitKey(1) & 0xFF
 # 	# if the `q` key was pressed, break from the loop
 	if key == ord("q"):
 		break
-# 	# update the FPS counter
+	# update the FPS counter
 # 	fps.update()
 	
 # # stop the timer and display FPS information
