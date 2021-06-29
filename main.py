@@ -1,8 +1,6 @@
 import proxy
 from speech import input_floors
-# from pi_face_recognition import face_recog
 import pi_face_recognition
-# import encode_faces
 import pickle
 import cv2
 

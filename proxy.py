@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 def proxy_detection():
-  print("Distance Measurement In Progress")
+  print("[+] Wave In Front Of Proximity Sensor")
 
   while(1):
     GPIO.setmode(GPIO.BCM)
@@ -14,7 +14,7 @@ def proxy_detection():
     GPIO.setup(ECHO,GPIO.IN)
 
     GPIO.output(TRIG, False)
-    print("Waiting For Sensor To Settle")
+    print("[+] Waiting For Response From User")
     time.sleep(2)
 
     GPIO.output(TRIG, True)
@@ -32,7 +32,7 @@ def proxy_detection():
     distance = round(distance, 2)
 
     if (distance < 15.0):
-      print("Distance:",distance,"cm")
+      print("[+] Response Received")
       GPIO.cleanup()
 
       return True
