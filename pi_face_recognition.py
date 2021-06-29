@@ -1,6 +1,6 @@
 from imutils.video import VideoStream
 import face_recognition
-import pickle
+# import pickle
 import imutils
 import time
 import cv2

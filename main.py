@@ -1,6 +1,7 @@
 import proxy
 from speech import input_floors
-from pi_face_recognition import face_recog
+# from pi_face_recognition import face_recog
+import pi_face_recognition
 import encode_faces
 import pickle
 import cv2
@@ -16,7 +17,7 @@ while(1):
 			status, output = input_floors()
 			if status == True:
 				print(output)
-				person_name = face_recog(data, detector)
+				person_name = pi_face_recognition.face_recog(data, detector)
 				print(person_name)
 				break
 			else:
